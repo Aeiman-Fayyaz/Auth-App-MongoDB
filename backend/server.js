@@ -38,3 +38,20 @@ app.post("/signup" , async(req , res) => {
 })
 
 // Login API
+app.post("/login" , async(req , res) => {
+    const {email , name , password , contactNo} = req.body;
+
+    const users = await User.findOne({
+        email , password , name , contactNo
+    })
+    if(users){
+        res.json({message: "Login Successful"})
+    }else{
+        res.json({message: "Invalid Credential"})
+    }
+})
+
+// Server Port Connection
+app.listen(5000 , ()=>{
+    console.log("Server Running on Port");
+})
