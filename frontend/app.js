@@ -12,15 +12,15 @@ function App() {
   // Signup Function
   const signup = () => {
     // Data Fetching
-    fetch("http://localhost:4000/signup", {
+    fetch("http://localhost:5000/signup", {
       method: "POST", // POST - Data add or create
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password, name, contactno }), // Normal data convert into JSON - Stringify
     })
-      .then((res) => res.json())
-      .then((data) => alert(data.message));
+      .then(res => res.json())
+      .then(data => alert(data.message));
   };
   const login = () => {
     // Data Fetching
@@ -31,8 +31,8 @@ function App() {
       },
       body: JSON.stringify({ email, password, name, contactno }), // Normal data convert into JSON - Stringify
     })
-      .then((res) => res.json())
-      .then((data) => alert(data.message));
+      .then(res => res.json())
+      .then(data => alert(data.message));
   };
 
   //   Create UI
@@ -65,5 +65,5 @@ function App() {
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  React.createElement(App),
+  React.createElement(App)
 );
